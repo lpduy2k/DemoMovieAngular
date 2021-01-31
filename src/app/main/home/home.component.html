@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <!-- Trường hợp loading -->
+    <!-- <app-loading> -->
+    <p *ngIf="loading">Loading...</p>
+
+    <!-- Trường hợp error -->
+    <!-- <app-error> -->
+    <p *ngIf="error">{{ error }}</p>
+
+    <!-- Trường hợp có data -->
+    <!-- <div *ngFor="let movie of movieList | slice:0:8" class="col-sm-3"></div> -->
+    <div *ngFor="let movie of movieList" class="col-sm-3">
+      <mat-card>
+        <img mat-card-image [src]="movie.hinhAnh" alt="" />
+        <mat-card-conntent>
+          <!-- khái niêm PIPE trong angular -->
+          <h4 class="card-title">{{ movie.tenPhim | uppercase}}</h4>
+          <!-- định dạng % -->
+          <!-- <p class="card-text">{{ 0.5 | percent }}</p>  -->
+          <!-- định dạng tiền -->
+          <!-- <p class="card-text">{{ 10000 | currency: 'VND' }}</p>  -->
+          <!-- định dạng json -->
+          <!-- <pre class="card-text">{{ movie | json }}</pre>  -->
+          <!-- định dạng ngày tháng -->
+          <!-- <p class="card-text">{{ movie.ngayKhoiChieu | date: "dd/MM/yyyy hh:mm:ss" }}</p>  -->
+          <p class="card-text">{{ movie.moTa | shortcut: 50 }}</p>
+          <button
+            mat-raised-button
+            color="primary"
+            routerLink="/movie/{{ movie.maPhim }}"
+          >
+            Chi tiết
+          </button>
+        </mat-card-conntent>
+      </mat-card>
+    </div>
+  </div>
+</div>
