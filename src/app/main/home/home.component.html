@@ -13,7 +13,7 @@
     <div *ngFor="let movie of movieList" class="col-sm-3">
       <mat-card>
         <img mat-card-image [src]="movie.hinhAnh" alt="" />
-        <mat-card-conntent>
+        <mat-card-content>
           <!-- khái niêm PIPE trong angular -->
           <h4 class="card-title">{{ movie.tenPhim | uppercase}}</h4>
           <!-- định dạng % -->
@@ -32,7 +32,7 @@
           >
             Chi tiết
           </button>
-        </mat-card-conntent>
+        </mat-card-content>
       </mat-card>
     </div>
   </div>
